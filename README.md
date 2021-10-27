@@ -1,3 +1,3 @@
 # simple ciphers
 
-This repository is a collection of mostly Python programs implementing simple encryption and decryption ciphers.
+Small but growing collection of mostly Python3 programs implementing simple encryption and decryption ciphers, starting with Caesar.
