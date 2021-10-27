@@ -16,10 +16,6 @@ print("Text  : " + text)
 print("Key : " + str(s))
 print("Cipher: " + encrypt(text, s))
 
-print()
-print()
-print("I like milkshakes")
-
 
 
 def caesar_encrypt(text, key):
