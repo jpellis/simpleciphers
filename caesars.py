@@ -1,20 +1,15 @@
-def encrypt(text, s):
+def encrypt(text, key):
     result = ""
 
     for i in range(len(text)):
         char = text[i]
 
         if (char.isupper()):
-            result += chr((ord(char) + s - 65) % 26 + 65)
+            result += chr((ord(char) + key - 65) % 26 + 65)
         else:
-            result += chr((ord(char) + s - 97) % 26 + 97)
+            result += chr((ord(char) + key - 97) % 26 + 97)
     return result
 
-text = "attack now"
-s = 14
-print("Text  : " + text)
-print("Key : " + str(s))
-print("Cipher: " + encrypt(text, s))
 
 
 
@@ -55,4 +50,12 @@ def caesar_encrypt(text, key):
     encrypted_string = (convert(encrypted_list))
     print("The homemade version of this cipher is: ", encrypted_string)
 
-caesar_encrypt("attack now", 14)
+
+
+text = "pizza time"
+key = 19
+
+print("Text  : " + text)
+print("Key : " + str(key))
+print("Cipher: " + encrypt(text, key))
+caesar_encrypt(text, key)
