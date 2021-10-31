@@ -1,24 +1,30 @@
 def encrypt(text, key):
     result = ""
-
     for i in range(len(text)):
         char = text[i]
-
-        if (char.isupper()):
-            result += chr((ord(char) + key - 65) % 26 + 65)
-        else:
-            result += chr((ord(char) + key - 97) % 26 + 97)
+        result += chr((ord(char) + key - 65) % 26 + 65) if char.isupper() else chr((ord(char) + key - 97) % 26 + 97)
     return result
 
-
+# This function is a *longer* version of the encrypt function above
+# def encrypt(text, key):
+#     result = ""
+#
+#     for i in range(len(text)):
+#         char = text[i]
+#
+#         if (char.isupper()):
+#             result += chr((ord(char) + key - 65) % 26 + 65)
+#         else:
+#             result += chr((ord(char) + key - 97) % 26 + 97)
+#     return result
 
 
 def caesar_encrypt(text, key):
     import collections
     # alphabetical base list in correct order
-    alpha_base_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-    # create a transposed alphabetical list by shifting to the right by the key value
+    #alpha_base_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    alpha_base_list = list('abcdefghijklmnopqrstuvwxyz')
+    #create a transposed alphabetical list by shifting to the right by the key value
     transpose = collections.deque(alpha_base_list)
     transpose.rotate(key)
     transposed_list = list(transpose)
@@ -53,9 +59,11 @@ def caesar_encrypt(text, key):
 
 
 text = "pizza time"
-key = 19
+key = 20
 
 print("Text  : " + text)
 print("Key : " + str(key))
-print("Cipher: " + encrypt(text, key))
+encrypted_text = encrypt(text, key)
+print("Cipher: " + encrypted_text)
+
 caesar_encrypt(text, key)
